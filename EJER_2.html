@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+            box-shadow: 5px 5px 5px #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+                + 'contributors',
+            maxZoom: 18
+        });
+        var map = L.map('map', {
+            center: [1.61389, -75.6128],
+            zoom: 13,
+            layers: osm,
+            scrollWheelZoom: false,
+        });
+        L.control.scale().addTo(map);
+
+
+        var marker1 = L.marker([1.62013, -75.60422], {
+            draggable: true,
+            title: 'aqui toy'
+        }).addTo(map)
+            .bindPopup('Universidad de la Amazonia')
+            .openPopup();
+
+
+        var marker2 = L.marker([1.61512, -75.61388], {
+            draggable: true,
+            title: 'aqui toy'
+        }).addTo(map)
+            .bindPopup('Alcaldia De Florencia')
+            .openPopup();
+
+        var circle = L.circle([1.61512, -75.61388], 500, {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5
+        }).addTo(map);
+
+
+        var marker3 = L.marker([1.61500, -75.61331], {
+            draggable: true,
+            title: 'aqui toy'
+        }).addTo(map)
+            .bindPopup('Parque Santander')
+            .openPopup();
+
+        var polygon = L.polygon([
+            [1.61518, -75.61373],
+            [1.61542, -75.61302],
+            [1.61469, -75.61279],
+            [1.61448, -75.61352]
+        ]).addTo(map)
+            .bindPopup('Plaza Santader');
+
+
+        var marker4 = L.marker([1.62292, -75.60060], {
+            draggable: true,
+            title: 'aqui toy'
+        }).addTo(map)
+            .bindPopup('mi casa')
+            .openPopup();
+
+
+        var point1 = new L.LatLng(1.62303, -75.60060);
+        var point2 = new L.LatLng(1.62337, -75.60174);
+        var point3 = new L.LatLng(1.62215, -75.60292);
+        var point4 = new L.LatLng(1.62193, -75.60430);
+        var point5 = new L.LatLng(1.62005, -75.60290);
+        var point6 = new L.LatLng(1.61977, -75.60248);
+        var point7 = new L.LatLng(1.61846, -75.60324);
+        var point8 = new L.LatLng(1.61813, -75.60389);
+        var point9 = new L.LatLng(1.61860, -75.60400);
+        var point10 = new L.LatLng(1.61909, -75.60445);
+        var point11 = new L.LatLng(1.62009, -75.60497);
+        var point12 = new L.LatLng(1.62006, -75.60453);
+  
+
+        var latlngs = [point1, point2, point3, point4,point5,point6,point7,point8,point9,point10,point11,point12];
+        var polyline = L.polyline(
+            latlngs, { color: 'red' }
+        )
+            .addTo(map)
+            .bindPopup('ruta de la casa a la u');
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
